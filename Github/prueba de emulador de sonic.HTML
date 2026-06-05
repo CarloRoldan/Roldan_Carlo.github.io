@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sonic 3 and Knuckles</title>
+
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+    }
+
+    body{
+        height:100vh;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        overflow:hidden;
+        font-family:Arial, sans-serif;
+
+        /* Fondo atractivo */
+        background:
+        linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)),
+        url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPX68eYiegSQyyHm_2aanpn2wi0RTfQCO1ow&s') center/cover no-repeat;
+    }
+
+    #container{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        gap:15px;
+    }
+
+    #game-wrapper{
+        border:4px solid #00d9ff;
+        border-radius:20px;
+        overflow:hidden;
+        box-shadow:
+            0 0 25px #00d9ff,
+            0 0 50px rgba(0,217,255,0.5);
+    }
+
+    iframe{
+        display:block;
+        width:960px;
+        height:600px;
+        border:none;
+        background:black;
+    }
+
+    button{
+        padding:12px 24px;
+        border:none;
+        border-radius:12px;
+        background:#00d9ff;
+        color:black;
+        font-size:18px;
+        font-weight:bold;
+        cursor:pointer;
+        transition:0.3s;
+    }
+
+    button:hover{
+        transform:scale(1.05);
+        background:white;
+    }
+
+    @media (max-width: 1000px){
+        iframe{
+            width:95vw;
+            height:60vh;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<div id="container">
+
+    <div id="game-wrapper">
+        <iframe
+            id="gameFrame"
+            src="https://megadrive-emulator.com/game/?game=Sonic_3_and_Knuckles.bin"
+            allowfullscreen>
+        </iframe>
+    </div>
+
+    <button onclick="fullscreenGame()">
+        Pantalla Completa
+    </button>
+
+</div>
+
+<script>
+function fullscreenGame() {
+    const game = document.getElementById("game-wrapper");
+
+    if (game.requestFullscreen) {
+        game.requestFullscreen();
+    } else if (game.webkitRequestFullscreen) {
+        game.webkitRequestFullscreen();
+    } else if (game.msRequestFullscreen) {
+        game.msRequestFullscreen();
+    }
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,177 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sonic 3 & Knuckles</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    background:
+    linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)),
+    url('https://sonic.fandom.com/wiki/Angel_Island')
+    center/cover fixed no-repeat;
+    color:white;
+}
+
+#container{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:30px;
+}
+
+h1{
+    font-size:55px;
+    color:#00d9ff;
+    text-shadow:0 0 15px #00d9ff;
+    margin-bottom:25px;
+    text-align:center;
+}
+
+#game-wrapper{
+    border:4px solid #00d9ff;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:
+        0 0 25px #00d9ff,
+        0 0 50px rgba(0,217,255,0.5);
+}
+
+iframe{
+    display:block;
+    width:960px;
+    height:600px;
+    border:none;
+    background:black;
+}
+
+.info{
+    width:960px;
+    margin-top:30px;
+    background:rgba(0,0,0,0.75);
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0 0 15px rgba(0,217,255,0.3);
+}
+
+.info h2{
+    color:#00d9ff;
+    margin-bottom:10px;
+    margin-top:20px;
+}
+
+.info h2:first-child{
+    margin-top:0;
+}
+
+.info p{
+    line-height:1.7;
+}
+
+.info ul{
+    margin-left:25px;
+    line-height:1.8;
+}
+
+@media (max-width:1000px){
+
+    iframe{
+        width:95vw;
+        height:60vh;
+    }
+
+    .info{
+        width:95vw;
+    }
+
+    h1{
+        font-size:40px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div id="container">
+
+    <h1>Sonic 3 & Knuckles</h1>
+
+    <div id="game-wrapper">
+        <iframe
+            src="https://megadrive-emulator.com/game/?game=Sonic_3_and_Knuckles.bin">
+        </iframe>
+    </div>
+
+    <div class="info">
+
+        <h2>Historia</h2>
+
+        <p>
+           Sonic 3 & Knuckles narra cómo Sonic y Tails detienen al Dr. Robotnik y a su estación espacial Death Egg, que se estrelló en la Isla Ángel. El villano engaña a Knuckles—guardián de la Esmeralda Maestra haciéndole creer que los héroes son ladrones. Finalmente, todos descubren la verdad y unen fuerzas para salvar la isla.El épico argumento del juego se desarrolla cronológicamente en tres grandes arcos:
+1. La llegada a la Isla Ángel y el engañoTras los eventos de Sonic 2, el Death Egg averiado aterriza en la Isla Ángel, una tierra mística que flota en el cielo. Para volver a poner en marcha su estación espacial, el Dr. Robotnik necesita las Esmeraldas del Caos. Sabiendo que Sonic intentará detenerlo, Robotnik acude con Knuckles el Equidna, el último de su especie y guardián de la Esmeralda Maestra.Robotnik convence a Knuckles de que Sonic y Tails son una amenaza que viene a robar sus esmeraldas. Confundido y protector por naturaleza, Knuckles le tiende una emboscada a Sonic al inicio de la aventura, despojándolo de todas sus Esmeraldas del Caos recién obtenidas.
+2. La campaña de Sonic y TailsMientras Sonic y Tails avanzan por la isla combatiendo tanto a las hordas de Robotnik como a las constantes trampas e interferencias de Knuckles, van recolectando de nuevo las esmeraldas. Su viaje los lleva a través de zonas mecánicas y naturales, desde bases de lanzamiento hasta bosques en llamas. Eventualmente, llegan al escondite del Death Egg.Aquí, Sonic logra vencer al robot gigante de Robotnik, lo que provoca que el Death Egg despegue nuevamente, aunque de forma inestable, y se estrelle en las alturas de la isla. Durante este caos, Sonic y Tails descubren que Knuckles ha sido manipulado y se dan cuenta de que la verdadera amenaza es el malvado científico.
+3. La campaña de Knuckles y el rescateLa historia continúa directamente desde la perspectiva de Knuckles. Mientras Sonic y Tails persiguen a Robotnik hacia el cielo, Knuckles se queda en la isla para lidiar con el remanente de los ejércitos robóticos del doctor (incluidos los agresivos EggRobos autónomos).En su camino, Knuckles se enfrenta a una versión robótica de Sonic creada por Robotnik, conocida como Mecha Sonic. Mecha Sonic traiciona a su propio creador y busca robar el poder de la Esmeralda Maestra para sí mismo. Knuckles debe enfrentarse a él en una intensa batalla final para proteger su preciada reliquia.
+4. La batalla final (El Death Egg)En la parte definitiva de la aventura, tras cruzar los dominios de Sky Sanctuary y otras zonas ocultas en las nubes, Sonic y Tails se infiltran en el Death Egg en pleno vuelo. Allí se enfrentan a las defensas definitivas del Dr. Robotnik y a sus máquinas robóticas. Con las 7 Esmeraldas del Caos, Sonic logra transformarse en Super Sonic y, más tarde, en Hyper Sonic, combatiendo contra Robotnik en el espacio exterior.Al derrotar a Robotnik definitivamente y destruir sus naves, la isla y el Death Egg se separan. La estación explota, mientras que la Isla Ángel, gracias al poder restaurado de la Esmeralda Maestra que Knuckles ha logrado proteger en la superficie, regresa a su órbita pacífica en el cielo.
+        </p>
+
+       <h2>Controles</h2>
+
+<ul>
+    <li><strong>Flechas del teclado:</strong> Mover al personaje.</li>
+    <li><strong>X:</strong> Saltar.</li>
+    <li><strong>Enter:</strong> Pausa / Start.</li>
+    <li><strong>Shift:</strong> Seleccionar opción.</li>
+    <li><strong>Spin Dash:</strong> Mantén presionada la flecha abajo y presiona varias veces el botón de salto (X). Luego suelta la flecha abajo para salir disparado.</li>
+</ul>
+
+<h2>Chaos Emeralds y Super Emeralds</h2>
+
+<ul>
+    <li>Las 7 Chaos Emeralds se consiguen entrando a los Giant Rings ocultos en las zonas del juego.</li>
+    <li>Debes reunir las 7 Chaos Emeralds para desbloquear a Super Sonic.</li>
+    <li>Después de obtener las 7 Chaos Emeralds, en Mushroom Hill podrás acceder al Hidden Palace.</li>
+    <li>En Hidden Palace, las Chaos Emeralds se transforman en Super Emeralds.</li>
+    <li>Debes volver a encontrar los Giant Rings y completar nuevos Special Stages para obtener las 7 Super Emeralds.</li>
+</ul>
+
+<h2>Super Sonic y Hyper Sonic</h2>
+
+<ul>
+    <li>Consigue las 7 Chaos Emeralds y reúne al menos 50 anillos para transformarte en Super Sonic.</li>
+    <li>Mientras juegas, salta y presiona el botón de salto nuevamente para transformarte.</li>
+    <li>Obtén las 7 Super Emeralds para desbloquear a Hyper Sonic.</li>
+    <li>Hyper Sonic es más rápido que Super Sonic y puede realizar un doble salto que destruye a los enemigos cercanos.</li>
+    <li>Las transformaciones consumen anillos poco a poco, así que debes seguir recogiendo más durante la partida.</li>
+</ul>
+
+    </div>
+
+<div>
+    <marquee behavior="scroll" direction="right" scrollamount="100">
+
+    <img src="sonic3.gif" height="150">
+
+   
+
+    <img src="eggman.gif" height="175">
+
+</marquee>
+        </div>
+
+</div>
+
+</body>
+</html>
