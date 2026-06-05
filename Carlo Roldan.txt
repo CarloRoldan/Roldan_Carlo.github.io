@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Listas en HTML</title>
+</head>
+
+<body>
+
+<div>    
+    <h1>Listas Ordenadas</h1>
+    <h2>Comidas favoritas</h2>
+    <ol>
+        <li>Hot dogs</li>   
+        <li>enchiladas</li>
+        <li>hamburguesas</li>
+        <li>tacos</li>
+        <li>pizza</li>
+        <li>chilaquiles</li>
+        <li>pastel de vainilla</li>
+    </ol>    
+</div>
+
+<div>    
+    <h1>Listas Desordenadas</h1>
+    <h2>Pendientes</h2>
+    <ul>
+        <li>Tender la cama</li>   
+        <li>Lavar la ropa</li>
+        <li>Hacer la tarea</li>
+        <li>Hacer el proyecto del codifica</li>
+        <li>Jugar beyblade burst</li>
+        <li>Jugar con el lorenzo y el joaquin a outcome memories</li>
+    </ul>    
+</div>
+
+</body>
+</html>

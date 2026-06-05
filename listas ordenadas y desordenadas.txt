@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Listas en HTML</title>
+</head>
+
+<body>
+
+<div>    
+    <h1>Listas Ordenadas</h1>
+    <h2>Mis materias</h2>
+    <ol>
+        <li>Cultura Digital II</li>   
+        <li>Pensamiento matemático</li>
+        <li>Lengua y comunicación</li>
+        <li>Ciencias sociales</li>
+        <li>Inglés</li>
+        <li>Ciencias naturales</li>
+        <li>Módulo</li>
+    </ol>    
+</div>
+
+<div>    
+    <h1>Listas Desordenadas</h1>
+    <h2>Pendientes</h2>
+    <ul>
+        <li>Tender la cama</li>   
+        <li>Lavar la ropa</li>
+        <li>Hacer la tarea</li>
+        <li>Hacer el proyecto de CDII</li>
+        <li>Jugar beyblade burst</li>
+        <li>Jugar con el lorenzo y el joaquin a outcome memories</li>
+    </ul>    
+</div>
+
+</body>
+</html>
