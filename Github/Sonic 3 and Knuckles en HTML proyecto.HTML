@@ -1,108 +1,123 @@
 ﻿<!DOCTYPE html>
 <html lang="es">
-<!DOCTYPE html>
-<html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonic 3 & Knuckles - Emulador</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<title>Sonic 3 & Knuckles</title>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)),
+            url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/0e738c17-7f3c-422e-8225-f8c782b08626/d8s81ft-49c180d4-3236-4996-916e-bf1710546bf8.png/v1/fill/w_1600,h_1164,q_80,strp/sonic_vs_eggman_showdown___eggman_week_finale_by_nibroc_rock_d8s81ft-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTE2NCIsInBhdGgiOiJcL2ZcLzBlNzM4YzE3LTdmM2MtNDIyZS04MjI1LWY4Yzc4MmIwODYyNlwvZDhzODFmdC00OWMxODBkNC0zMjM2LTQ5OTYtOTE2ZS1iZjE3MTA1NDZiZjgucG5nIiwid2lkdGgiOiI8PTE2MDAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.OiUK4yz0nT9wpeZZAp_e6mzyTVzSHUU6bLOduB0fB6k')
+            center/cover fixed no-repeat;
+            color: white;
+        }
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+        #container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px;
+        }
 
-body{
-    font-family:Arial, sans-serif;
-    background:
-    linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)),
-    url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/0e738c17-7f3c-422e-8225-f8c782b08626/d8s81ft-49c180d4-3236-4996-916e-bf1710546bf8.png/v1/fill/w_1600,h_1164,q_80,strp/sonic_vs_eggman_showdown___eggman_week_finale_by_nibroc_rock_d8s81ft-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTE2NCIsInBhdGgiOiJcL2ZcLzBlNzM4YzE3LTdmM2MtNDIyZS04MjI1LWY4Yzc4MmIwODYyNlwvZDhzODFmdC00OWMxODBkNC0zMjM2LTQ5OTYtOTE2ZS1iZjE3MTA1NDZiZjgucG5nIiwid2lkdGgiOiI8PTE2MDAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.OiUK4yz0nT9wpeZZAp_e6mzyTVzSHUU6bLOduB0fB6k')
-    center/cover fixed no-repeat;
-    color:white;
-}
+        h1 {
+            font-size: 55px;
+            color: #00d9ff;
+            text-shadow: 0 0 15px #00d9ff;
+            margin-bottom: 25px;
+            text-align: center;
+        }
 
-#container{
-    width:100%;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    padding:30px;
-}
+        #game-wrapper {
+            border: 4px solid #00d9ff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 0 25px #00d9ff, 0 0 50px rgba(0,217,255,0.5);
+        }
 
-h1{
-    font-size:55px;
-    color:#00d9ff;
-    text-shadow:0 0 15px #00d9ff;
-    margin-bottom:25px;
-    text-align:center;
-}
+        iframe {
+            display: block;
+            width: 960px;
+            height: 600px;
+            border: none;
+            background: black;
+        }
 
-#game-wrapper{
-    border:4px solid #00d9ff;
-    border-radius:20px;
-    overflow:hidden;
-    box-shadow:
-        0 0 25px #00d9ff,
-        0 0 50px rgba(0,217,255,0.5);
-}
+        .info {
+            width: 960px;
+            margin-top: 30px;
+            background: rgba(0,0,0,0.75);
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 0 15px rgba(0,217,255,0.3);
+        }
 
-iframe{
-    display:block;
-    width:960px;
-    height:600px;
-    border:none;
-    background:black;
-}
+        .info h2 {
+            color: #00d9ff;
+            margin-bottom: 12px;
+            margin-top: 25px;
+        }
 
-.info{
-    width:960px;
-    margin-top:30px;
-    background:rgba(0,0,0,0.75);
-    padding:25px;
-    border-radius:20px;
-    box-shadow:0 0 15px rgba(0,217,255,0.3);
-}
+        .info h3 {
+            color: #e5b60d;
+            margin: 15px 0 8px 0;
+        }
 
-.info h2{
-    color:#00d9ff;
-    margin-bottom:10px;
-    margin-top:20px;
-}
+        .info h4 {
+            color: #fff;
+            margin: 10px 0 5px 10px;
+        }
 
-.info h2:first-child{
-    margin-top:0;
-}
+        .info h2:first-child {
+            margin-top: 0;
+        }
 
-.info p{
-    line-height:1.7;
-}
+        .info p {
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
 
-.info ul{
-    margin-left:25px;
-    line-height:1.8;
-}
+        .info ul {
+            margin-left: 25px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
 
-@media (max-width:1000px){
+        .motivacion {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 20px;
+            max-width: 600px;
+        }
 
-    iframe{
-        width:95vw;
-        height:60vh;
-    }
+        .motivacion img {
+            max-width: 150px;
+            margin-bottom: 10px;
+        }
 
-    .info{
-        width:95vw;
-    }
-
-    h1{
-        font-size:40px;
-    }
-}
-</style>
+        @media (max-width:1000px) {
+            iframe {
+                width: 95vw;
+                height: 60vh;
+            }
+            .info {
+                width: 95vw;
+            }
+            h1 {
+                font-size: 40px;
+            }
+        }
+    </style>
 </head>
-
 <body>
 
 <div id="container">
@@ -110,159 +125,100 @@ iframe{
     <h1>Sonic 3 & Knuckles</h1>
 
     <div id="game-wrapper">
-        <iframe
-src="https://megadrive-emulator.com/game/?game=Sonic_3_and_Knuckles.bin"
-allow="fullscreen"
-allowfullscreen>
-</iframe>
+        <iframe src="https://megadrive-emulator.com/game/?game=Sonic_3_and_Knuckles.bin" allow="fullscreen" allowfullscreen></iframe>
     </div>
 
     <div class="info">
-
         <h2>Historia</h2>
+        <p>Sonic 3 & Knuckles narra cómo Sonic y Tails detienen al Dr. Robotnik y a su estación espacial Death Egg, que se estrelló en la Isla Ángel. El villano engaña a Knuckles —guardián de la Esmeralda Maestra— haciéndole creer que los héroes son ladrones. Finalmente, todos descubren la verdad y unen fuerzas para salvar la isla.</p>
+        
+        <p><strong>1. La llegada a la Isla Ángel y el engaño:</strong> Tras los eventos de Sonic 2, el Death Egg averiado aterriza en la Isla Ángel, una tierra mística que flota en el cielo. Robotnik convence a Knuckles de que Sonic y Tails vienen a robar sus esmeraldas. Confundido, Knuckles le tiende una emboscada a Sonic al inicio de la aventura, despojándolo de sus Chaos Emeralds.</p>
+        
+        <p><strong>2. La campaña de Sonic y Tails:</strong> Mientras avanzan por la isla combatiendo los robots y las trampas de Knuckles, recolectan de nuevo las esmeraldas. Al llegar al escondite del Death Egg, vencen al robot gigante de Robotnik, haciendo que la estación se estrelle en las alturas. Aquí descubren que Knuckles fue manipulado.</p>
+        
+        <p><strong>3. La campaña de Knuckles:</strong> La historia continúa desde la perspectiva de Knuckles, quien se queda en la isla para lidiar con los EggRobos. Debe enfrentarse a Mecha Sonic, una versión robótica que traiciona a su creador y busca robar el poder de la Esmeralda Maestra. Knuckles lo derrota en una intensa batalla final.</p>
+        
+        <p><strong>4. La batalla final (El Death Egg):</strong> Sonic y Tails se infiltran en el Death Egg en pleno vuelo. Con las 7 Chaos Emeralds, Sonic se transforma en Super Sonic (e Hyper Sonic con las Super Emeralds) para combatir a Robotnik en el espacio exterior. Al derrotarlo, la Isla Ángel regresa a su órbita pacífica en el cielo.</p>
 
-        <p>
-           Sonic 3 & Knuckles narra cómo Sonic y Tails detienen al Dr. Robotnik y a su estación espacial Death Egg, que se estrelló en la Isla Ángel. El villano engaña a Knuckles—guardián de la Esmeralda Maestra haciéndole creer que los héroes son ladrones. Finalmente, todos descubren la verdad y unen fuerzas para salvar la isla.El épico argumento del juego se desarrolla cronológicamente en tres grandes arcos:
-1. La llegada a la Isla Ángel y el engañoTras los eventos de Sonic 2, el Death Egg averiado aterriza en la Isla Ángel, una tierra mística que flota en el cielo. Para volver a poner en marcha su estación espacial, el Dr. Robotnik necesita las Esmeraldas del Caos. Sabiendo que Sonic intentará detenerlo, Robotnik acude con Knuckles el Equidna, el último de su especie y guardián de la Esmeralda Maestra.Robotnik convence a Knuckles de que Sonic y Tails son una amenaza que viene a robar sus esmeraldas. Confundido y protector por naturaleza, Knuckles le tiende una emboscada a Sonic al inicio de la aventura, despojándolo de todas sus Esmeraldas del Caos recién obtenidas.
-2. La campaña de Sonic y TailsMientras Sonic y Tails avanzan por la isla combatiendo tanto a las hordas de Robotnik como a las constantes trampas e interferencias de Knuckles, van recolectando de nuevo las esmeraldas. Su viaje los lleva a través de zonas mecánicas y naturales, desde bases de lanzamiento hasta bosques en llamas. Eventualmente, llegan al escondite del Death Egg.Aquí, Sonic logra vencer al robot gigante de Robotnik, lo que provoca que el Death Egg despegue nuevamente, aunque de forma inestable, y se estrelle en las alturas de la isla. Durante este caos, Sonic y Tails descubren que Knuckles ha sido manipulado y se dan cuenta de que la verdadera amenaza es el malvado científico.
-3. La campaña de Knuckles y el rescateLa historia continúa directamente desde la perspectiva de Knuckles. Mientras Sonic y Tails persiguen a Robotnik hacia el cielo, Knuckles se queda en la isla para lidiar con el remanente de los ejércitos robóticos del doctor (incluidos los agresivos EggRobos autónomos).En su camino, Knuckles se enfrenta a una versión robótica de Sonic creada por Robotnik, conocida como Mecha Sonic. Mecha Sonic traiciona a su propio creador y busca robar el poder de la Esmeralda Maestra para sí mismo. Knuckles debe enfrentarse a él en una intensa batalla final para proteger su preciada reliquia.
-4. La batalla final (El Death Egg)En la parte definitiva de la aventura, tras cruzar los dominios de Sky Sanctuary y otras zonas ocultas en las nubes, Sonic y Tails se infiltran en el Death Egg en pleno vuelo. Allí se enfrentan a las defensas definitivas del Dr. Robotnik y a sus máquinas robóticas. Con las 7 Esmeraldas del Caos, Sonic logra transformarse en Super Sonic y, más tarde, en Hyper Sonic, combatiendo contra Robotnik en el espacio exterior.Al derrotar a Robotnik definitivamente y destruir sus naves, la isla y el Death Egg se separan. La estación explota, mientras que la Isla Ángel, gracias al poder restaurado de la Esmeralda Maestra que Knuckles ha logrado proteger en la superficie, regresa a su órbita pacífica en el cielo.
-        </p>
+        <h2>Controles</h2>
+        <ul>
+            <li><strong>Flechas del teclado:</strong> Mover al personaje.</li>
+            <li><strong>X:</strong> Saltar.</li>
+            <li><strong>Enter:</strong> Pausa / Start.</li>
+            <li><strong>Shift:</strong> Seleccionar opción.</li>
+            <li><strong>Spin Dash:</strong> Mantén presionada la flecha abajo y presiona varias veces el botón de salto (X). Luego suelta la flecha abajo para salir disparado.</li>
+        </ul>
 
-       <h2>Controles</h2>
+        <h2>Chaos Emeralds y Super Emeralds</h2>
+        <ul>
+            <li>Las 7 Chaos Emeralds se consiguen entrando a los Giant Rings ocultos en las zonas.</li>
+            <li>Debes reunir las 7 Chaos Emeralds para desbloquear a Super Sonic.</li>
+            <li>Después de obtenerlas, en Mushroom Hill podrás acceder al Hidden Palace para transformarlas en Super Emeralds.</li>
+            <li>Completa los nuevos Special Stages para obtener las 7 Super Emeralds.</li>
+        </ul>
 
-<ul>
-    <li><strong>Flechas del teclado:</strong> Mover al personaje.</li>
-    <li><strong>X:</strong> Saltar.</li>
-    <li><strong>Enter:</strong> Pausa / Start.</li>
-    <li><strong>Shift:</strong> Seleccionar opción.</li>
-    <li><strong>Spin Dash:</strong> Mantén presionada la flecha abajo y presiona varias veces el botón de salto (X). Luego suelta la flecha abajo para salir disparado.</li>
-</ul>
-
-<h2>Chaos Emeralds y Super Emeralds</h2>
-
-<ul>
-    <li>Las 7 Chaos Emeralds se consiguen entrando a los Giant Rings ocultos en las zonas del juego.</li>
-    <li>Debes reunir las 7 Chaos Emeralds para desbloquear a Super Sonic.</li>
-    <li>Después de obtener las 7 Chaos Emeralds, en Mushroom Hill podrás acceder al Hidden Palace.</li>
-    <li>En Hidden Palace, las Chaos Emeralds se transforman en Super Emeralds.</li>
-    <li>Debes volver a encontrar los Giant Rings y completar nuevos Special Stages para obtener las 7 Super Emeralds.</li>
-</ul>
-
-<section id="transformaciones-sonic3k">
-    <h2>Guía de Transformaciones en Sonic 3 & Knuckles</h2>
-
-    <!-- Requisitos Generales -->
-    <article class="requisitos">
+        <h2>Guía de Transformaciones</h2>
         <h3>Requisitos Previos</h3>
         <ul>
-            <li><strong>Esmeraldas del Caos (7):</strong> Conseguidas en las fases especiales de esferas azules desde los anillos gigantes.</li>
-            <li><strong>Super Esmeraldas (7):</strong> Accesibles en la etapa de <em>Sonic & Knuckles</em> tras dejar las esmeraldas normales en el palacio oculto.</li>
-            <li><strong>Anillos:</strong> Es obligatorio recolectar un mínimo de <strong>50 anillos</strong> para transformarte, necesitas recolectar mas anillos para que dure la transformacion o regresaras a tu forma base.</li>
+            <li><strong>Esmeraldas del Caos (7):</strong> Conseguidas en las fases de esferas azules.</li>
+            <li><strong>Super Esmeraldas (7):</strong> Accesibles tras dejar las esmeraldas normales en el palacio oculto.</li>
+            <li><strong>Anillos:</strong> Es obligatorio un mínimo de 50 anillos para transformarte y mantener la forma.</li>
         </ul>
-    </article>
 
-    <!-- Sección de Personajes -->
-    <div class="personajes-contenedor">
-        
-        <!-- Sonic -->
-        <article class="personaje">
-            <h3> Sonic the Hedgehog</h3>
-            <ul>
-                <li><strong>Super Sonic:</strong> Requiere 7 Esmeraldas del Caos. Salta y presiona el botón de salto nuevamente en el aire.</li>
-                <li><strong>Hyper Sonic:</strong> Requiere 7 Super Esmeraldas. Salta y presiona salto en el aire. Desbloquea un doble salto con destello destructor.</li>
-            </ul>
-        </article>
+        <h3>Sonic the Hedgehog</h3>
+        <ul>
+            <li><strong>Super Sonic:</strong> Requiere 7 Esmeraldas del Caos. Salta y presiona el botón de salto de nuevo en el aire.</li>
+            <li><strong>Hyper Sonic:</strong> Requiere 7 Super Esmeraldas. Desbloquea un doble salto con un destello destructor de enemigos.</li>
+        </ul>
 
-        <!-- Tails -->
-        <article class="personaje">
-            <h3> Miles "Tails" Prower</h3>
-            <ul>
-                <li><strong>Super Tails:</strong> No tiene forma intermedia. Requiere las 7 Super Esmeraldas. Salta y presiona el botón de salto en el aire para invocar a los Flickies atacantes.</li>
-            </ul>
-        </article>
+        <h3>Miles "Tails" Prower</h3>
+        <ul>
+            <li><strong>Super Tails:</strong> Requiere las 7 Super Esmeraldas. Invoca a los Flickies atacantes para que destruyan todo a su paso.</li>
+        </ul>
 
-        <!-- Knuckles -->
-        <article class="personaje">
-            <h3> Knuckles the Echidna</h3>
-            <ul>
-                <li><strong>Super Knuckles:</strong> Requiere 7 Esmeraldas del Caos. Salta y presiona el botón de salto en el aire para aumentar su velocidad y fuerza.</li>
-                <li><strong>Hyper Knuckles:</strong> Requiere 7 Super Esmeraldas. Salta y presiona salto en el aire. Provoca terremotos al estrellarse contra las paredes al planear.</li>
-            </ul>
-        </article>
+        <h3>Knuckles the Echidna</h3>
+        <ul>
+            <li><strong>Super Knuckles:</strong> Requiere 7 Esmeraldas del Caos. Aumenta drásticamente su velocidad y fuerza.</li>
+            <li><strong>Hyper Knuckles:</strong> Requiere 7 Super Esmeraldas. Provoca terremotos al estrellarse contra las paredes al planear.</li>
+        </ul>
 
+        <h2>Habilidades de Movimiento</h2>
+        <h3>Habilidades de Tails</h3>
+        <h4>1. Vuelo y Nado</h4>
+        <ul>
+            <li><strong>Activar:</strong> Salta y presiona repetidamente el botón de salto en el aire o bajo el agua.</li>
+            <li><strong>Desactivar:</strong> Deja de presionar el botón o espera 8 segundos a que se canse.</li>
+        </ul>
+        <h4>2. Carga de Vuelo</h4>
+        <ul>
+            <li><strong>Activar:</strong> Sonic debe saltar hacia los brazos de Tails mientras vuela.</li>
+        </ul>
+
+        <h3>Habilidades de Knuckles</h3>
+        <h4>1. Planeo (Gliding)</h4>
+        <ul>
+            <li><strong>Activar:</strong> Salta y mantén presionado el botón de salto en el aire.</li>
+        </ul>
+        <h4>2. Escalada de Paredes</h4>
+        <ul>
+            <li><strong>Activar:</strong> Planea directo hacia una pared. Usa las flechas Arriba/Abajo para escalar.</li>
+        </ul>
+        <h4>3. Romper Bloques</h4>
+        <ul>
+            <li><strong>Activar:</strong> Habilidad pasiva. Camina o planea directamente hacia muros de piedra rompibles.</li>
+        </ul>
+
+        <h2>Cómo Jugar con los Demás Personajes</h2>
+        <p>Para jugar con Knuckles, Sonic solo o Tails solo: inicia el juego, ve a <strong>Data Select</strong> y usa las flechas de arriba y abajo del teclado para cambiar de personaje antes de iniciar la partida.</p>
     </div>
-</section>
 
-<section id="habilidades-sonic3k">
-    <h2>Habilidades de Movimiento: Tails y Knuckles</h2>
-
-    <!-- Habilidades de Tails -->
-    <article class="habilidad-personaje">
-        <h3> Habilidades de Miles "Tails" Prower</h3>
-        
-        <div class="movimiento">
-            <h4>1. Vuelo (En el aire o bajo el agua)</h4>
-            <ul>
-                <li><strong>Cómo activar:</strong> Salta y vuelve a presionar y soltar repetidamente el botón de salto en el aire. Si estás en el agua, esto lo hará nadar.</li>
-                <li><strong>Cómo desactivar:</strong> Deja de presionar el botón de salto para que caiga por gravedad, o espera 8 segundos a que se canse y descienda automáticamente.</li>
-            </ul>
-        </div>
-
-        <div class="movimiento">
-            <h4>2. Carga de Vuelo (Transportar a Sonic)</h4>
-            <ul>
-                <li><strong>Cómo activar:</strong> Sonic debe saltar hacia los brazos de Tails mientras este se encuentra volviendo en el aire.</li>
-                <li><strong>Cómo desactivar:</strong> Sonic se suelta automáticamente al presionar el botón de salto, o bien cuando Tails se agota tras el límite de tiempo.</li>
-            </ul>
-        </div>
-    </article>
-
-    <!-- Habilidades de Knuckles -->
-    <article class="habilidad-personaje">
-        <h3> Habilidades de Knuckles the Echidna</h3>
-
-        <div class="movimiento">
-            <h4>1. Planeo (Gliding)</h4>
-            <ul>
-                <li><strong>Cómo activar:</strong> Salta y mantén presionado el botón de salto en el aire para descender horizontalmente.</li>
-                <li><strong>Cómo desactivar:</strong> Suelta el botón de salto en cualquier momento para caer en picada recta, o aterriza en el suelo o una pared manejable.</li>
-            </ul>
-        </div>
-
-        <div class="movimiento">
-            <h4>2. Escalada de Paredes</h4>
-            <ul>
-                <li><strong>Cómo activar:</strong> Planea directamente hacia una pared vertical; Knuckles se aferrará de forma automática con sus nudillos. Usa el pad direccional (Arriba/Abajo) para escalar.</li>
-                <li><strong>Cómo desactivar:</strong> Presiona el botón de salto para impulsarte hacia atrás y soltarte de la superficie.</li>
-            </ul>
-        </div>
-
-        <div class="movimiento">
-            <h4>3. Romper Bloques</h4>
-            <ul>
-                <li><strong>Cómo activar:</strong> Habilidad pasiva. Simplemente camina, corre o planea directamente hacia muros de piedra rompibles.</li>
-                <li><strong>Cómo desactivar:</strong> No requiere desactivación, es una propiedad permanente del personaje.</li>
-            </ul>
-        </div>
-    </article>
-</section>
-
-<section id="seleccion-personajes-sonic3k">
-    <h2>Cómo Jugar con los Demás Personajes</h2>
-<li>para jugar con knuckles, o sonic solo o tails solo, inicia el juego, vete a Data Select y con la flechas de arriba y abajo del teclado, podras cambiar de personaje</li>
+    <div class="motivacion">
+        <img src="sonicpose.gif" alt="Sonic">
+        <h2>⚡ Sonic ⚡</h2>
+        <p>"Puede que cometas errores, no importa. Aferrate a querer estar en el mañana con los hechos del ayer para aprender de ellos. Solo Live and Learn."</p>
     </div>
-<div class="motivacion">
-
-    <img src="sonicpose.gif" alt="Sonic">
-
-    <h2>⚡ Sonic ⚡</h2>
-
-    <p>
-        "Puede que te tumben varias veces, que cometas varios errores, no importa, nadie es perfecto como yo, aunque sea el erizo mas rapido que existe, en algunas ocasiones no llegue a tiempo. Aferrate a querer estar en el mañana con los hechos del ayer, para no cometer los mismos errores. Solo Live and Learn."
-    </p>
-
 
 </div>
+
 </body>
 </html>
